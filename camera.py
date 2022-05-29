@@ -1,8 +1,3 @@
-#Modified by smartbuilds.io
-#Date: 27.06.20
-#Desc: This scrtipt is running a face recongition of a live webcam stream. This is a modifed
-#code of the orginal Ageitgey (GitHub) face recognition demo to include multiple faces.
-#Simply add the your desired 'passport-style' face to the 'profiles' folder.
 
 import face_recognition
 import cv2
@@ -94,7 +89,6 @@ class VideoCamera(object):
                 # GPIO.output(8, GPIO.HIGH) # Turn on blue
                 
                 face_names.append(name)
-        
                 name_gui = name
 
         process_this_frame = not process_this_frame
@@ -115,6 +109,5 @@ class VideoCamera(object):
             font = cv2.FONT_HERSHEY_DUPLEX
             cv2.putText(image, name_gui, (left + 10, bottom - 10), font, 1.0, (0, 0, 0), 1)
 
-        
         ret, jpeg = cv2.imencode('.jpg', image)
         return jpeg.tobytes()
