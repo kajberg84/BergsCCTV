@@ -28,8 +28,10 @@ process_this_frame = True
 #Loop to add images in friends folder
 for file in os.listdir("profiles"):
     try:
-        #Extracting person name from the image filename eg: david.jpg
+        #Extracting person name from the image filename 
         known_person.append(file.replace(".jpg", ""))
+        known_person.append(file.replace(".png", ""))
+
         file=os.path.join("profiles/", file)
         known_image = face_recognition.load_image_file(file)
         #print("test")
@@ -58,7 +60,7 @@ class VideoCamera(object):
         
         process_this_frame = True
         
-            # Resize frame of video to 1/4 size for faster face recognition processing
+        # Resize frame of video to 1/4 size for faster face recognition processing
         small_frame = cv2.resize(image, (0, 0), fx=0.25, fy=0.25)
 
         # Convert the image from BGR color (which OpenCV uses) to RGB color (which face_recognition uses)
